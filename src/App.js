@@ -31,7 +31,7 @@ export default class App extends Component {
     
     <div className="App">
       <Router>
-      <header>WebScout</header>
+      <header>WebIScout</header>
       <section>
        <Switch>
        <Route 
@@ -52,7 +52,7 @@ export default class App extends Component {
 
       </section>
       <footer>
-        <span>WebScout</span>
+        <span>WebIScout</span>
       </footer>
       </Router>
     </div>
