@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./Login.css";
 import Button from "@material-ui/core/Button";
 
-
 class Login extends Component {
   loginCredential;
 
@@ -12,8 +11,6 @@ class Login extends Component {
       userEmail: "",
       password: "",
     };
-
-    console.log(props, "props");
   }
 
   onChangeEmail = (e) => {
@@ -32,18 +29,16 @@ class Login extends Component {
     const { userEmail, password } = this.state;
 
     if (
-      userEmail ==='kishor.pant@immortal-technologies.com' &&
-      password  === '1234'
+      userEmail === "kishor.pant@immortal-technologies.com" &&
+      password === "1234"
     ) {
-      console.log(userEmail,password);
-      this.props.history.push("/dashboard",{userEmail:userEmail});
+      this.props.history.push("/dashboard", { userEmail: userEmail });
 
       this.setState({
         userEmail: "",
         password: "",
       });
-    }
-    else{
+    } else {
       alert("wrong credential");
     }
     //   const option = {
@@ -69,8 +64,6 @@ class Login extends Component {
 
   componentDidMount() {
     this.loginCredential = JSON.parse(localStorage.getItem("users"));
-
-    console.log(this.loginCredential);
 
     if (localStorage.getItem("users")) {
       this.setState({
@@ -141,7 +134,10 @@ class Login extends Component {
                   LOGIN
                 </Button>
               </div>
-              <span className="login-footer-text"> New at WebScout? Register</span>
+              <span className="login-footer-text">
+                {" "}
+                New at WebScout? Register
+              </span>
             </div>
           </form>
         </section>
