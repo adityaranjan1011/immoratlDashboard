@@ -1,26 +1,63 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Login from "./Components/Login/Login";
+import "./App.css";
+import { BrowserRouter as Router, Redirect, Switch,Route} from "react-router-dom";
+import Dashboard from "./Components/Dashboard/Dashboard";
+import axios from "axios";
 
-function App() {
+export default class App extends Component {
+
+  constructor(){
+    super();
+
+    this.state={
+      loggedin:"Not logged in",
+      user:{},
+    }
+  }
+
+   componentDidMount() {
+    const url = " https://citopay.in/webiscout/API/Login ";
+    axios.get(url).then((res) => {
+      console.log(res);
+      this.setState({
+        user:res
+      })
+    });
+   
+   }
+  render(){
   return (
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+      <header>WebScout</header>
+      <section>
+       <Switch>
+       <Route 
+       exact 
+       path={"/" }
+      render = {props => (
+        <Login { ...props}/>  
+      )}       
+       /> 
+       <Redirect from='/login/' to="/dashboard/" />
+        <Route exact={true} 
+        path="/dashboard" 
+        render={props => (
+          <Dashboard { ...props}  /> 
+        )}
+        /> 
+       </Switch>
+
+      </section>
+      <footer>
+        <span>WebScout</span>
+      </footer>
+      </Router>
     </div>
+   
   );
 }
 
-export default App;
+}

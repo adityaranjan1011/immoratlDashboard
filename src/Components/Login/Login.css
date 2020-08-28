@@ -1,0 +1,50 @@
+
+.Login {
+    text-align: -webkit-center;
+}
+.login-form {
+    position: relative;
+    top: 30px;
+    height: 300px;
+    width: 350px;
+
+    display: grid;
+    grid-template-rows: 0.25fr 1fr 0.25fr;
+    padding: 20px;
+    box-shadow: 5px 5px 5px 5px #9a9494;
+}
+.heading,
+.login-footer-text {
+    font-size: 12px;
+    padding: 5px;
+    line-height: 2;
+    color:#004faa;
+}
+.input-container {
+    display: grid;
+}
+.uname-box,
+.passwrd-box {
+    /* padding: 20px; */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: space-evenly;
+}
+.uname,
+.passwrd {
+    height: 30px;
+    width: 350px;
+    padding-left: 10px;
+    
+}
+.login-footer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+}
+.btn {
+    display: flex;
+    justify-content: space-between;
+}
+
